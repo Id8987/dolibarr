@@ -15,6 +15,7 @@ Il y'a deux possibilite de cloner le projet:
 ```git clone https://github.com/Id8987/dolibarr_app.git```
 
 Une fois en local, ouvrir le  dossier et faire ```git remote add origin  https://github.com/Id8987/dolibarr_app.git ```  //pour nous eviter de taper souvent le lien https.
+
 Faire ```flutter create .``` pour installer les dependances.
 
 ```git pull origin main``` synchroniser la branche principale distante avec celle en local.
@@ -45,6 +46,4 @@ Maintenant je vpeux pousser avec :
 
 
 Voici un lien pour ca https://www.youtube.com/watch?v=8JJ101D3knE&ab_channel=ProgrammingwithMosh.
-AUtre chose pour les erreurs , j'ai un clavier anglais j'ai pas d'accents dal
-## dic1 hatna nak 
-## DIC1livesmatter
+Autre chose pour les erreurs , j'ai un clavier anglais j'ai pas d'accents desole.
