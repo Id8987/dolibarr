@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:dolibarr_project/widgets/my_drawwer_widget.dart';
 
 class PageAccueil extends StatelessWidget {
   const PageAccueil({super.key});
@@ -7,12 +7,22 @@ class PageAccueil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
-        title: Text('Page d accueil'),
-        backgroundColor: Colors.red,
+        title: Text('Dolibarr'),
+        backgroundColor: Colors.blue.shade300,
       ),
-      body: const  Center(
-        child: Text('Rone tu travailles ici '),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              child: Center(
+                child: Text('Entete de Page '),
+              ),
+              color: Colors.red,
+            ),
+          ],
+        ),
       ),
     );
   }
