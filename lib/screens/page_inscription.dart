@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class PageInscription extends StatefulWidget {
@@ -22,8 +24,11 @@ class _PageInscription extends State<PageInscription> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Column(
+        
         children: [
+          
          const Card(
            child: Padding(
            padding: EdgeInsets.all(16.0),
@@ -38,20 +43,27 @@ class _PageInscription extends State<PageInscription> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //Champ pour le prenom
-                  TextFormField(
-                   decoration: InputDecoration(labelText: 'Prenom'),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                
+                   //Champ pour le prenom
+                  child: TextFormField(
+                   decoration: InputDecoration(labelText: 'Prénom'),
+                   
                   validator: (value) {
                     if (value !=null && value.isEmpty) {
-                      return 'Veuillez entrer votre prenom';
+                      return 'Veuillez entrer votre prénom';
                       }
                     return null;
                   },
                   
+                  ),
                 ),
-                // Champ pour nom
                 
-                TextFormField(
+                // Champ pour nom
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                  child: TextFormField(
                   decoration: InputDecoration(labelText: 'Nom'),
                   validator: (value) {
                     if (value !=null && value.isEmpty) {
@@ -61,8 +73,11 @@ class _PageInscription extends State<PageInscription> {
                   },
                   
                 ),
+                ),
                 // Champ pour le nom d'utilisateur
-                TextFormField(
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                child: TextFormField(
                   decoration: InputDecoration(labelText: 'Nom d\'utilisateur'),
                   validator: (value) {
                     if (value !=null && value.isEmpty) {
@@ -72,9 +87,13 @@ class _PageInscription extends State<PageInscription> {
                   },
                   
                 ),
+                ),
+                
                 // Champ pour l'adresse e-mail
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Adresse email'),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                child :TextFormField(
+                  decoration: InputDecoration(labelText: 'Adresse e-mail'),
                   validator: (value) {
                     if (value !=null && value.isEmpty) {
                       return 'Veuillez entrer une adresse e-mail';
@@ -83,8 +102,11 @@ class _PageInscription extends State<PageInscription> {
                   },
                   
                 ),
+                ),
                 // Champ pour le mot de passe
-                TextFormField(
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                 child : TextFormField(
                   decoration: InputDecoration(labelText: 'Mot de passe'),
                   obscureText: true,
                   validator: (value) {
@@ -95,7 +117,10 @@ class _PageInscription extends State<PageInscription> {
                   },
                   
                 ),
-                TextFormField(
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                child : TextFormField(
                   decoration: InputDecoration(labelText: 'Confirmer mot de passe'),
                   obscureText: true,
                   validator: (value) {
@@ -106,6 +131,8 @@ class _PageInscription extends State<PageInscription> {
                   },
                   
                 ),
+                ),
+               
                 // Bouton d'inscription
                 Container(
                       height: 30,
@@ -158,8 +185,11 @@ class PageSucces extends StatelessWidget {
               color: Colors.lightBlue,
             )
             ),
+    
+          
         
       ),
+      
     );
   }
 }
