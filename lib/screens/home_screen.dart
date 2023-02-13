@@ -1,3 +1,5 @@
+import 'package:dolibarr_project/screens/page_connexion.dart';
+import 'package:dolibarr_project/screens/page_inscription.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -59,6 +61,12 @@ class HomeScreen extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       // Navigate to sign up page
+                       Navigator.push(
+                    context, 
+                    MaterialPageRoute(
+                      builder: (context) => PageInscription(),
+                    ),
+                    );
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
@@ -79,6 +87,13 @@ class HomeScreen extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       // Navigate to sign in page
+                        Navigator.push(
+                    context, 
+                    MaterialPageRoute(
+                      builder: (context) => PageConnexion(),
+                    ),
+                    );
+                      
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
