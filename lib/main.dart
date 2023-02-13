@@ -3,6 +3,7 @@ import 'package:dolibarr_project/screens/page_connexion.dart';
 import 'package:flutter/material.dart';
 import 'package:dolibarr_project/screens/home_screen.dart';
 import 'package:dolibarr_project/screens/page_inscription.dart';
+import 'package:dolibarr_project/screens/mdp_oublie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,9 +22,11 @@ class MyApp extends StatelessWidget {
         "/inscription": (context) => PageInscription(),
         "/connection": (context) => PageConnexion(),
         "/accueil": (context) => PageAccueil(),
+        "/mdpoublie": (context) => PageMdpOublie(),
+
       },
       debugShowCheckedModeBanner: false,
-      initialRoute: "/principale",
+      initialRoute: "/connection",
     );
   }
 }

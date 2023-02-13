@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:dolibarr_project/screens/page_accueil.dart';
 import 'package:dolibarr_project/screens/home_screen.dart';
+import 'package:dolibarr_project/screens/mdp_oublie.dart';
+import 'package:dolibarr_project/screens/page_inscription.dart';
 
 
 const Color  d_blue = Color(0xFF263c5c);
@@ -29,7 +31,7 @@ class PageConnexion extends StatelessWidget {
             size: 30,
           ), 
           onPressed: () { 
-            Navigator.pop(
+            Navigator.push(
               context, 
               MaterialPageRoute(
                   builder: (context) => HomeScreen(),
@@ -39,7 +41,8 @@ class PageConnexion extends StatelessWidget {
         ),
       ),
         // ignore: prefer_const_constructors
-      body: SafeArea(
+      body: SingleChildScrollView(
+        child: SafeArea(
         child: Center(
           child: Column(
             
@@ -49,94 +52,75 @@ class PageConnexion extends StatelessWidget {
               // logo de Dolibarr
             
               Container(
-                margin: const EdgeInsets.only(top: 60),
+                margin: const EdgeInsets.only(top: 60,bottom: 40),
               child: Image.asset(
-                'images/1.png',
+                'assets/images/1.png',
                   
                    scale: 1.5,
                ), 
              ),
-            const SizedBox(height: 20,),
+            //Sconst SizedBox(height: 20,),
              Container( 
               child: Column(
                 children: [
                  Container(
-                margin: const EdgeInsets.only(top: 40, left: 30),
-                alignment: Alignment.topLeft,
-                  child: Text('User Name',
-                  style: GoogleFonts.poppins(
-                    color: d_blue,
-                    fontSize: 26, 
-                  ),
-                  ),
+              
                  ),
                   Container(
                 padding: EdgeInsets.all(10),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'your user name',
+                    hintText: 'Identifiant',
+                    hintStyle: TextStyle(
+                      fontSize: 19,
+                    ),
+                    
+                     suffixIcon: Icon(Icons.person),
                     contentPadding: EdgeInsets.all(10),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
-                      // ignore: prefer_const_constructors
-                      borderSide: BorderSide(
-                        width: 1, 
-                        color: d_blue,
-                      )
-                      ) ,
+                    
                   ) ,
 
                 ),
               ),
                  Container(
-                margin: const EdgeInsets.only(top: 20, left: 30),
-                alignment: Alignment.topLeft,
-
-                  child: Text('Password',
-                  style: GoogleFonts.poppins(
-                    color: d_blue,
-                    fontSize: 26, 
-
-                 
-                 
-                  ),
-                 )
+                
                  ),
  Container(
                 padding: EdgeInsets.all(10),
                 child: TextFormField(
+                  obscureText: true,
                   decoration: InputDecoration(
-                    hintText: 'your password',
-                   // suffixIcon: Icon(Icons.visibility_off),
-                    contentPadding: EdgeInsets.only(left: 10),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
-                      // ignore: prefer_const_constructors
-                      borderSide: BorderSide(
-                        width: 1, 
-                        color: d_blue,
-                      )
-                      ) ,
+                    hintText: 'Mot de passe',
+                    hintStyle: TextStyle(
+                      fontSize: 18,
+                    ),
+                   suffixIcon: Icon(Icons.vpn_key),
+                //    contentPadding: EdgeInsets.only(left: 10,bottom:0),
+                    
+                       
                   ) ,
 
                 ),
                 
               ),
-              Container(
-                // ignore: prefer_const_constructors
-                child: Text('LOGIN',
-                style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                 ),
-                ),
-              )
-                ,
+            
                 Container(
-                child: Column(
+                margin: const EdgeInsets.only(top: 60),
+
+                child: Row(
+                  
+                mainAxisAlignment: MainAxisAlignment.center,
+               // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                ElevatedButton(
+                  
+            // const  SizedBox(width: 100 ),
+                ElevatedButton( child: Text('Se Connecter',
+                  style: GoogleFonts.poppins(
+                  color: Colors.white,
+                 fontSize: 20,
+                // fontWeight: FontWeight.w500,
+                   ),
+                  ),
                  onPressed: () {
                   Navigator.push(
                     context, 
@@ -146,23 +130,97 @@ class PageConnexion extends StatelessWidget {
                     );
                 },
                 style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(),
-                  primary: d_blue,
-                  padding: EdgeInsets.all(30),
-                ),
-                 child: null,
-                  ),
-               
-            ])
-          )]
-              ),),
+                  shape: StadiumBorder(), backgroundColor: d_blue,
+                  padding: EdgeInsets.all( 10)
+                  
 
+                ),
+                
+               
+                 ) ]),
+          ),
+          ]),
+            ),
+  Row(
+                // ignore: prefer_const_constructors
+                mainAxisAlignment: MainAxisAlignment.center,
+           
+               children: 
+                [
+                  
+            
+                Align(
+                  child: Container(
+                    
+                     margin: EdgeInsets.only(top: 10),
+                       child: TextButton(
+                          onPressed: () {
+                             Navigator.push(
+                              context,
+                               MaterialPageRoute(
+                      builder: (context) => PageMdpOublie(),
+                    ),);
+  },
+                  // child: Expanded(
+  
+   child: Center(
+    
+    child: Text(
+                "Mot de passe oublie?",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  color: Color.fromARGB(255, 112, 143, 168),
+                 // fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+  ),),)
+        ),]
+        ),
+        Row(
+                // ignore: prefer_const_constructors
+                mainAxisAlignment: MainAxisAlignment.center,
+           
+               children: 
+                [
+                  
+            
+                Align(
+                  child: Container(
+                    
+                     margin: EdgeInsets.only(top: 10),
+                       child: TextButton(
+                          onPressed: () {
+                             Navigator.push(
+                              context,
+                               MaterialPageRoute(
+                      builder: (context) => PageInscription(),
+                    ),);
+  },
+                  // child: Expanded(
+  
+   child: Center(
+    
+    child: Text(
+                "Vous n'avez pas de compte?",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  color: Color.fromARGB(255, 112, 143, 168),
+                 // fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+  ),),)
+        ),]
+        ),
+        
 
             
-          ]),
+        ]  ),
         ),
-        ),
-          );
+        ), )
+     
+      );
       
     
   }
