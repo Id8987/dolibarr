@@ -24,7 +24,8 @@ class HomeScreen extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("/home/arona/Images/logo3.jpg"),
+              image: AssetImage("assets/images/logo3.jpg"),
+        
               fit: BoxFit.cover,
             ),
           ),
@@ -34,13 +35,13 @@ class HomeScreen extends StatelessWidget {
               Container(
                 height: 250,
                 width: 250,
-                child: Image.asset("/home/arona/Images/logo.png"),
+                child: Image.asset("assets/images/logo.png"),
                 
               ),
                Container(
                 height: 250,
                 width: 250,
-                child: Image.asset("/home/arona/Images/photo4.png"),
+                child: Image.asset("assets/images/photo4.png"),
                 
               ),
               SizedBox(height: 50),
