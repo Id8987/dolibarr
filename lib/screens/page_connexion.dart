@@ -29,7 +29,7 @@ class _PageConnexionState extends State<PageConnexion> {
   // methode pour connecter l'utilisateur
   void connectUser(String login, String password) {
     Uri uri = Uri.parse(
-        "http://localhost/dolibarr/api/index.php/login?login=$login&password=$password");
+        "https://dolimobile.with6.dolicloud.com/api/index.php/login?login=$login&password=$password");
 
     http.get(uri).then((response) {
       setState(() {
