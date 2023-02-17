@@ -1,4 +1,5 @@
 import 'package:dolibarr_project/config/global_params.dart';
+import 'package:dolibarr_project/module_Tiers/tiers_accueil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -80,7 +81,7 @@ class Modules extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 1,
+        crossAxisCount: 2,
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 10.0,
         mainAxisExtent: 150,
@@ -89,7 +90,9 @@ class Modules extends StatelessWidget {
       itemBuilder: (context, item) {
         return InkWell(
           onTap: () {
-            print("tapped");
+            //TODO: GERER LA NAVIGATION
+            Navigator.push(
+                context, MaterialPageRoute(builder: ((context) => Tiers())));
           },
           child: Container(
             padding: EdgeInsets.all(20),
