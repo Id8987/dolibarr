@@ -1,3 +1,4 @@
+import 'package:dolibarr_project/screens/doli.accueil.dart';
 import 'package:flutter/material.dart';
 import 'package:dolibarr_project/widgets/my_drawwer_widget.dart';
 
@@ -13,7 +14,7 @@ class PageAccueil extends StatelessWidget {
       //drawer: const MyDrawer(),
       appBar: AppBar(
         title: const Text('Dolibarr'),
-        backgroundColor: Colors.blue.shade300,
+        backgroundColor: Accueil.couleurPrincipale,
       ),
       // bottomNavigationBar: BottomNav(),
       body: SingleChildScrollView(
@@ -108,7 +109,7 @@ class PageAccueil extends StatelessWidget {
                                 color: Colors.yellow,
                               ),
                               Text(
-                                'CLiquer ici pour configurer les parametres principaux',
+                                'CLiquer ici pour configurer les \nparametres principaux',
                                 style: TextStyle(
                                   letterSpacing: 1.2,
                                 ),
