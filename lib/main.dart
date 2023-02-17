@@ -1,5 +1,7 @@
-import 'package:dolibarr_project/screens/page_accueil.dart';
+import 'package:dolibarr_project/screens/doli.accueil.dart';
+import 'package:dolibarr_project/screens/page_parametre.dart';
 import 'package:dolibarr_project/screens/page_connexion.dart';
+import 'package:dolibarr_project/screens/page_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:dolibarr_project/screens/home_screen.dart';
 import 'package:dolibarr_project/screens/page_inscription.dart';
@@ -21,12 +23,13 @@ class MyApp extends StatelessWidget {
         "/principale": (context) => HomeScreen(),
         "/inscription": (context) => PageInscription(),
         "/connection": (context) => PageConnexion(),
-        "/accueil": (context) => PageAccueil(),
+        "/accueil": (context) => Accueil(),
         "/mdpoublie": (context) => PageMdpOublie(),
-
+        "/profile": (context) => ProfileUtilisateur(),
+        "/params": (context) => PageAccueil(),
       },
       debugShowCheckedModeBanner: false,
-      initialRoute: "/connection",
+      initialRoute: "/accueil",
     );
   }
 }
