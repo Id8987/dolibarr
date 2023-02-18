@@ -1,3 +1,4 @@
+import 'package:dolibarr_project/module_Tiers/tiers_accueil.dart';
 import 'package:dolibarr_project/screens/doli.accueil.dart';
 import 'package:dolibarr_project/screens/page_parametre.dart';
 import 'package:dolibarr_project/screens/page_connexion.dart';
@@ -25,11 +26,15 @@ class MyApp extends StatelessWidget {
         "/connection": (context) => PageConnexion(),
         "/accueil": (context) => Accueil(),
         "/mdpoublie": (context) => PageMdpOublie(),
-        "/profile": (context) => ProfileUtilisateur(),
+        "/profile": (context) => ProfileUtilisateur(
+              apiKey: 'iso',
+              apiUrl: 'https://dolimobile.with6.dolicloud.com',
+            ),
         "/params": (context) => PageAccueil(),
+        "/tier": (context) => Tiers(),
       },
       debugShowCheckedModeBanner: false,
-      initialRoute: "/accueil",
+      initialRoute: "/principale",
     );
   }
 }
