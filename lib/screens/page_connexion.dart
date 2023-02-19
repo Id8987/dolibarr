@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:dolibarr_project/screens/page_accueil.dart';
+import 'package:dolibarr_project/screens/page_parametre.dart';
 import 'package:dolibarr_project/screens/home_screen.dart';
 import 'package:dolibarr_project/screens/mdp_oublie.dart';
 import 'package:dolibarr_project/screens/page_inscription.dart';
 import 'package:http/http.dart' as http;
+
+import 'doli.accueil.dart';
 
 const Color d_blue = Color(0xFF263c5c);
 
@@ -28,17 +30,13 @@ class _PageConnexionState extends State<PageConnexion> {
   dynamic data;
   // methode pour connecter l'utilisateur
   void connectUser(String login, String password) {
-<<<<<<< HEAD
-    Uri uri = Uri.parse(
-<<<<<<< HEAD
-        "https://dolimobile.with6.dolicloud.com/api/index.php/login?login=$login&password=$password");
-=======
-        "http://localhost/dolibarr/htdocs/api/index.php/login?login=$login&password=$password");
->>>>>>> dba6c4e5caf992c043f7a01509b43f8a60e42826
-=======
-    Uri uri = Uri.parse( "http://localhost/dolibarr/htdocs/api/index.php/login?login=$login&password=$password");
 
->>>>>>> b3d82e787950da4c4b3b37967b9dcadd9153cd52
+    Uri uri = Uri.parse(
+
+        "https://dolimobile.with6.dolicloud.com/api/index.php/login?login=$login&password=$password");
+
+
+
 
     http.get(uri).then((response) {
       setState(() {
@@ -48,13 +46,12 @@ class _PageConnexionState extends State<PageConnexion> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PageAccueil(),
+              builder: (context) => Accueil(),
             ),
           );
         }
       });
     }).catchError((err) {
-      print(err);
       setState(() {
         afficherErreur = true;
         _champLoginController.text = '';
@@ -73,22 +70,22 @@ class _PageConnexionState extends State<PageConnexion> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white.withOpacity(0),
-          leading: IconButton(
-            // ignore: prefer_const_constructors
-            icon: Icon(
-              Icons.arrow_back,
-              color: const Color(0xFF000000),
-              size: 30,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-                ),
-              );
-            },
-          ),
+          // leading: IconButton(
+          //   // ignore: prefer_const_constructors
+          //   icon: Icon(
+          //     Icons.arrow_back,
+          //     color: const Color(0xFF000000),
+          //     size: 30,
+          //   ),
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => HomeScreen(),
+          //       ),
+          //     );
+          //   },
+          // ),
         ),
 
         // ignore: prefer_const_constructors
@@ -173,7 +170,6 @@ class _PageConnexionState extends State<PageConnexion> {
                                     ),
                                   ),
                                   onPressed: () {
-                                    print(_champMdpController.text);
                                     connectUser(_champLoginController.text,
                                         _champMdpController.text);
                                   },

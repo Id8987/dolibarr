@@ -78,7 +78,10 @@ class PageAccueil extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
-                            Navigator.pushNamed(context, "/connection");
+                            // Navigator.pushNamed(context, "/connection");
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('Veuillez vous connecter au site '),
+                            ));
                           },
                         ),
                       ],
@@ -89,7 +92,7 @@ class PageAccueil extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     child: Column(
                       children: [
-                        const Text(
+                        Text(
                           'Paramètres de base utilisés pour personnaliser le comportement par défaut de votre application (par exemple pour les fonctionnalités liées au pays).',
                           style: TextStyle(
                             letterSpacing: 1.2,
@@ -103,16 +106,26 @@ class PageAccueil extends StatelessWidget {
                           padding: const EdgeInsets.all(8),
                           margin: const EdgeInsets.only(bottom: 20),
                           child: Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.warning,
                                 color: Colors.yellow,
                               ),
-                              Text(
-                                'CLiquer ici pour configurer les \nparametres principaux',
-                                style: TextStyle(
-                                  letterSpacing: 1.2,
+                              InkWell(
+                                child: Text(
+                                  'CLiquer ici pour configurer les \nparametres principaux',
+                                  style: TextStyle(
+                                    letterSpacing: 1.2,
+                                  ),
                                 ),
+                                onTap: () {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      'Veuillez vous connecter au site ',
+                                    ),
+                                  ));
+                                },
                               ),
                             ],
                           ),

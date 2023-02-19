@@ -1,13 +1,14 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:dolibarr_project/config/global_params.dart';
 import 'package:dolibarr_project/module_Tiers/tiers_accueil.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 // ignore_for_file: prefer_const_constructors
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
   // couleur de la page
   static Color couleurPrincipale = Color.fromARGB(255, 3, 51, 93);
+  // Color.fromARGB(255, 3, 51, 93)
 
   @override
   State<Accueil> createState() => _AccueilState();
@@ -91,8 +92,10 @@ class Modules extends StatelessWidget {
         return InkWell(
           onTap: () {
             //TODO: GERER LA NAVIGATION
-            Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => Tiers())));
+            // Navigator.push(
+            //     context, MaterialPageRoute(builder: ((context) => Tiers())));
+            Navigator.pushNamed(
+                context, GlobalParams.modules.elementAt(item)['route']);
           },
           child: Container(
             padding: EdgeInsets.all(20),
