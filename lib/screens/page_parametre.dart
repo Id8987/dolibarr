@@ -1,18 +1,23 @@
+import 'package:dolibarr_project/screens/doli.accueil.dart';
 import 'package:flutter/material.dart';
 import 'package:dolibarr_project/widgets/my_drawwer_widget.dart';
 
+import '../widgets/bottom_navigation.dart';
+
+// ignore_for_file: prefer_const_constructors
 class PageAccueil extends StatelessWidget {
   const PageAccueil({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const MyDrawer(),
+      //drawer: const MyDrawer(),
       appBar: AppBar(
         title: const Text('Dolibarr'),
-        backgroundColor: Colors.blue.shade300,
+        backgroundColor: Accueil.couleurPrincipale,
       ),
-      body: SafeArea(
+      // bottomNavigationBar: BottomNav(),
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Column(
@@ -73,7 +78,10 @@ class PageAccueil extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
-                            Navigator.pushNamed(context, "/connection");
+                            // Navigator.pushNamed(context, "/connection");
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('Veuillez vous connecter au site '),
+                            ));
                           },
                         ),
                       ],
@@ -84,7 +92,7 @@ class PageAccueil extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     child: Column(
                       children: [
-                        const Text(
+                        Text(
                           'Paramètres de base utilisés pour personnaliser le comportement par défaut de votre application (par exemple pour les fonctionnalités liées au pays).',
                           style: TextStyle(
                             letterSpacing: 1.2,
@@ -98,13 +106,26 @@ class PageAccueil extends StatelessWidget {
                           padding: const EdgeInsets.all(8),
                           margin: const EdgeInsets.only(bottom: 20),
                           child: Row(
-                            children: const [
+                            children: [
                               Icon(
                                 Icons.warning,
                                 color: Colors.yellow,
                               ),
-                              Text(
-                                'CLiquer ici pour configurer les parametres principaux',
+                              InkWell(
+                                child: Text(
+                                  'CLiquer ici pour configurer les \nparametres principaux',
+                                  style: TextStyle(
+                                    letterSpacing: 1.2,
+                                  ),
+                                ),
+                                onTap: () {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      'Veuillez vous connecter au site ',
+                                    ),
+                                  ));
+                                },
                               ),
                             ],
                           ),
@@ -126,12 +147,21 @@ class PageAccueil extends StatelessWidget {
                         SizedBox(
                           width: 5,
                         ),
-                        Text('Configuration-Module/Application')
+                        Text(
+                          'Configuration-Module/Application',
+                          style: TextStyle(
+                            letterSpacing: 1.2,
+                          ),
+                        ),
                       ],
                     ),
                     // text concernant module application
                     const Text(
-                        'Ce logiciel est une suite de nombreux modules/applications. Les modules liés à vos besoins doivent être activés et configurés. Les entrées de menu apparaîtront avec l\'activation de ces modules.')
+                      'Ce logiciel est une suite de nombreux modules/applications. Les modules liés à vos besoins doivent être activés et configurés. Les entrées de menu apparaîtront avec l\'activation de ces modules.',
+                      style: TextStyle(
+                        letterSpacing: 1.2,
+                      ),
+                    ),
                   ],
                 ),
               )
