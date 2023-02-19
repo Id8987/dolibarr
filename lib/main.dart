@@ -8,6 +8,9 @@ import 'package:dolibarr_project/screens/home_screen.dart';
 import 'package:dolibarr_project/screens/page_inscription.dart';
 import 'package:dolibarr_project/screens/mdp_oublie.dart';
 
+import 'module-grh/GRH.dart';
+import 'module_commandes/ListeCommande.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -32,6 +35,8 @@ class MyApp extends StatelessWidget {
             ),
         "/params": (context) => PageAccueil(),
         "/tier": (context) => Tiers(),
+        "/grh": (context) => PageModuleGRH(),
+        "/commande": (context) => CommandeListPage(),
       },
       debugShowCheckedModeBanner: false,
       initialRoute: "/principale",

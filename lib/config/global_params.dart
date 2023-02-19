@@ -15,7 +15,7 @@ class GlobalParams {
     {
       "title": "Recrutement",
       "icon": Icons.person_add,
-      "route": "/tier",
+      "route": "/grh",
       //"image": "../assets/images/1.png"
     },
     {
@@ -27,7 +27,7 @@ class GlobalParams {
     {
       "title": "Commande",
       "icon": Icons.shopping_cart,
-      "route": "/tier",
+      "route": "/commande",
       //"image": "../assets/images/1.png"
     },
     // {"title": "Facturation et paiement", "icon": Icons.home},
