@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:dolibarr_project/screens/page_accueil.dart';
+import 'package:dolibarr_project/screens/page_parametre.dart';
 import 'package:dolibarr_project/screens/home_screen.dart';
 import 'package:dolibarr_project/screens/mdp_oublie.dart';
 import 'package:dolibarr_project/screens/page_inscription.dart';
 import 'package:http/http.dart' as http;
+
+import 'doli.accueil.dart';
 
 const Color d_blue = Color(0xFF263c5c);
 
@@ -28,8 +30,13 @@ class _PageConnexionState extends State<PageConnexion> {
   dynamic data;
   // methode pour connecter l'utilisateur
   void connectUser(String login, String password) {
+
     Uri uri = Uri.parse(
+
         "https://dolimobile.with6.dolicloud.com/api/index.php/login?login=$login&password=$password");
+
+
+
 
     http.get(uri).then((response) {
       setState(() {
@@ -39,7 +46,7 @@ class _PageConnexionState extends State<PageConnexion> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PageAccueil(),
+              builder: (context) => Accueil(),
             ),
           );
         }
@@ -63,22 +70,22 @@ class _PageConnexionState extends State<PageConnexion> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white.withOpacity(0),
-          leading: IconButton(
-            // ignore: prefer_const_constructors
-            icon: Icon(
-              Icons.arrow_back,
-              color: const Color(0xFF000000),
-              size: 30,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-                ),
-              );
-            },
-          ),
+          // leading: IconButton(
+          //   // ignore: prefer_const_constructors
+          //   icon: Icon(
+          //     Icons.arrow_back,
+          //     color: const Color(0xFF000000),
+          //     size: 30,
+          //   ),
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => HomeScreen(),
+          //       ),
+          //     );
+          //   },
+          // ),
         ),
 
         // ignore: prefer_const_constructors
@@ -92,7 +99,7 @@ class _PageConnexionState extends State<PageConnexion> {
                     // logo de Dolibarr
 
                     Container(
-                      margin: const EdgeInsets.only(top: 60, bottom: 40),
+                      margin: const EdgeInsets.only(top: 40, bottom:5),
                       child: Image.asset(
                         'assets/images/1.png',
                         scale: 1.5,
@@ -100,10 +107,21 @@ class _PageConnexionState extends State<PageConnexion> {
                     ),
                     //Sconst SizedBox(height: 20,),
                     Container(
+
+                 child: Text('DoliApp',
+                    style: GoogleFonts.poppins(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                      color: d_blue,
+                    ),
+                    
+                  )    
+                    ),
+                    Container(
                       child: Column(children: [
                         Container(),
                         Container(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.only(top: 20,left:30,right: 30 ),
                           child: TextFormField(
                             controller: _champLoginController,
                             decoration: InputDecoration(
@@ -118,7 +136,7 @@ class _PageConnexionState extends State<PageConnexion> {
                         ),
                         Container(),
                         Container(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.only(top:20,right: 30,left: 30),
                           child: TextFormField(
                             controller: _champMdpController,
                             obscureText: true,
@@ -136,7 +154,7 @@ class _PageConnexionState extends State<PageConnexion> {
                         //cette classe est definie en bas : c'est pour afficher une erreurs en cas d'identifiant(incorrect)
                         afficherErreur ? HandleError() : Container(),
                         Container(
-                          margin: const EdgeInsets.only(top: 30),
+                          margin: const EdgeInsets.only(top: 50),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               // crossAxisAlignment: CrossAxisAlignment.center,
@@ -164,45 +182,14 @@ class _PageConnexionState extends State<PageConnexion> {
                         ),
                       ]),
                     ),
+                  
                     Row(
                         // ignore: prefer_const_constructors
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Align(
                               child: Container(
-                            margin: EdgeInsets.only(top: 10),
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PageMdpOublie(),
-                                  ),
-                                );
-                              },
-                              // child: Expanded(
-
-                              child: Center(
-                                child: Text(
-                                  "Mot de passe oublie?",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.poppins(
-                                    color: Color.fromARGB(255, 112, 143, 168),
-                                    // fontSize: 14,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )),
-                        ]),
-                    Row(
-                        // ignore: prefer_const_constructors
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Align(
-                              child: Container(
-                            margin: EdgeInsets.only(top: 10),
+                            margin: EdgeInsets.only(top: 5),
                             child: TextButton(
                               onPressed: () {
                                 Navigator.push(
